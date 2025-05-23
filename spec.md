@@ -1,12 +1,10 @@
-**Developer-Ready Specification: Gemini Tab Titler Browser Extension**
+**Developer-Ready Specification: Gemini Entitled Tabs - Browser Extension**
 
 **Version:** 1.0
 **Date:** March 28, 2024
-**Author (User Idea):** [User's Name/Alias, if provided, otherwise implicit]
-**Compiled By:** AI Assistant
 
 **1. Introduction & Overview**
-This document outlines the specifications for a browser extension, "Gemini Tab Titler," designed for Chromium-based browsers (specifically Brave). The primary purpose of this extension is to dynamically modify the browser tab titles of open Gemini (`gemini.google.com`) sessions. Instead of the generic "Gemini" title, the extension will use more descriptive information derived from the current chat content, significantly improving tab identification and searchability, especially when using features like Chrome/Brave's "Search Tabs" (`Cmd-Shift-A` or `Ctrl-Shift-A`).
+This document outlines the specifications for a browser extension, "Gemini Entitled Tabs," designed for Chromium-based browsers (specifically Brave). The primary purpose of this extension is to dynamically modify the browser tab titles of open Gemini (`gemini.google.com`) sessions. Instead of the generic "Gemini" title, the extension will use more descriptive information derived from the current chat content, significantly improving tab identification and searchability, especially when using features like Chrome/Brave's "Search Tabs" (`Cmd-Shift-A` or `Ctrl-Shift-A`).
 
 **2. Goals & Objectives**
 *   **Primary Goal:** Enhance the usability of multiple Gemini tabs by providing unique and context-rich tab titles.
