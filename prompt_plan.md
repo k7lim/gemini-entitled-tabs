@@ -518,7 +518,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 12: Refinements - MutationObserver Optimization & Final Code Review (Completed: [ NO ])**
+### **Prompt 12: Refinements - MutationObserver Optimization & Final Code Review (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -600,7 +600,7 @@ After this step, the developer should:
 
 ---
 
-### **Prompt 13: Final Test - "As Is" Title Handling (Completed: [ NO ])**
+### **Prompt 13: Final Test - "As Is" Title Handling (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.

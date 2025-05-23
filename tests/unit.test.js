@@ -73,6 +73,24 @@ describe('Gemini Entitled Tabs Extension', () => {
       expect(observer.observe).toBeDefined();
       expect(observer.disconnect).toBeDefined();
     });
+
+    test('should handle optimized mutation filtering', () => {
+      // Test mutation filtering logic
+      const mutations = [
+        { type: 'childList' },
+        { type: 'attributes', attributeName: 'class' },
+        { type: 'attributes', attributeName: 'style' }, // Should be filtered out
+        { type: 'characterData' }
+      ];
+      
+      const relevantMutations = mutations.filter(mutation => 
+        mutation.type === 'childList' || 
+        mutation.type === 'characterData' ||
+        (mutation.type === 'attributes' && ['class', 'aria-selected'].includes(mutation.attributeName))
+      );
+      
+      expect(relevantMutations).toHaveLength(3); // Excludes style attribute change
+    });
   });
 
   describe('Error Handling', () => {

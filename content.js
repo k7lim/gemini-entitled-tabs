@@ -27,7 +27,8 @@ const SELECTORS = {
   ]
 };
 
-console.log("Gemini Entitled Tabs content script loaded on:", window.location.href);
+// Minimal logging for production
+console.log("Gemini Entitled Tabs: Extension active");
 
 function getPromptInputElement() {
   try {
@@ -61,7 +62,6 @@ function getSelectedConversationTitleElement() {
     // Try primary selector first
     let element = document.querySelector(SELECTORS.selectedConversationTitle);
     if (element) {
-      console.log(`Found selected conversation element with primary selector: ${SELECTORS.selectedConversationTitle}`);
       return element;
     }
     
@@ -69,7 +69,6 @@ function getSelectedConversationTitleElement() {
     for (const selector of SELECTORS.selectedConversationTitleFallbacks) {
       element = document.querySelector(selector);
       if (element) {
-        console.log(`Found selected conversation element with fallback selector: ${selector}`);
         return element;
       }
     }
@@ -149,17 +148,28 @@ function initializeMutationObserver() {
         
         observer = new MutationObserver((mutations) => {
           try {
-            console.log('Sidebar DOM changed, checking for title updates');
-            updateDocumentTitle();
+            // Check if mutations contain relevant changes before processing
+            const hasRelevantChanges = mutations.some(mutation => 
+              mutation.type === 'childList' || 
+              mutation.type === 'characterData' ||
+              (mutation.type === 'attributes' && ['class', 'aria-selected'].includes(mutation.attributeName))
+            );
+            
+            if (hasRelevantChanges) {
+              updateDocumentTitle();
+            }
           } catch (error) {
             console.warn('Gemini Entitled Tabs: Error in MutationObserver callback:', error);
           }
         });
         
+        // Optimized observer configuration - monitor attributes for selection changes
         observer.observe(sidebarContainer, {
-          childList: true,
-          subtree: true,
-          characterData: true
+          childList: true,      // New conversation items added/removed
+          subtree: true,        // Monitor nested elements for title changes
+          characterData: true,  // Text content changes in titles
+          attributes: true,     // Selection state changes
+          attributeFilter: ['class', 'aria-selected'] // Only watch selection-related attributes
         });
       } else {
         console.warn('Gemini Entitled Tabs: Sidebar container not found using selector:', SELECTORS.sidebarContainer);
@@ -183,7 +193,6 @@ setTimeout(updateDocumentTitle, 1000);
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   try {
     if (request.type === "GEMINI_TAB_BLURRED") {
-      console.log("GEMINI_TAB_BLURRED message received.");
       const promptText = getPromptText();
       
       // Store prompt text for potential use

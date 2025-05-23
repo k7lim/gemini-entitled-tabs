@@ -17,6 +17,11 @@ describe('Extension Integration Tests', () => {
     expect(manifest.content_scripts).toHaveLength(1);
     expect(manifest.content_scripts[0].matches).toContain('https://gemini.google.com/*');
     expect(manifest.background.service_worker).toBe('background.js');
+    expect(manifest.icons).toBeDefined();
+    expect(manifest.icons['16']).toBe('icons/icon16.png');
+    expect(manifest.icons['48']).toBe('icons/icon48.png');
+    expect(manifest.icons['128']).toBe('icons/icon128.png');
+    expect(manifest.host_permissions).toContain('https://gemini.google.com/*');
   });
 
   test('content script files exist', () => {
