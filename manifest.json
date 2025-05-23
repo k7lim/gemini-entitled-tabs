@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Entitled Tabs",
+  "version": "1.0",
+  "description": "Dynamically updates Gemini tab titles based on chat content for better tab identification.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["tabs"]
+}

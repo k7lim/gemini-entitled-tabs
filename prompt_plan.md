@@ -1,4 +1,4 @@
-### **Prompt 1: Project Setup - Manifest File (Completed: [ NO ])**
+### **Prompt 1: Project Setup - Manifest File (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. Your task is to help build a Chrome browser extension (Manifest V3) called "Gemini Entitled Tabs."
@@ -27,7 +27,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 2: Project Setup - Basic Content Script & Injection (Completed: [ NO ])**
+### **Prompt 2: Project Setup - Basic Content Script & Injection (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -60,7 +60,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 3: Project Setup - Basic Background Service Worker (Completed: [ NO ])**
+### **Prompt 3: Project Setup - Basic Background Service Worker (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -89,7 +89,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 4: Fallback Titling - DOM Interaction in Content Script (Completed: [ NO ])**
+### **Prompt 4: Fallback Titling - DOM Interaction in Content Script (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -132,7 +132,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 5: Fallback Titling - Background Script - Tab Focus Detection (Completed: [ NO ])**
+### **Prompt 5: Fallback Titling - Background Script - Tab Focus Detection (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
