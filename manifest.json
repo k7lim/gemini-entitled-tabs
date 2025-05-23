@@ -13,5 +13,6 @@
       "run_at": "document_idle"
     }
   ],
-  "permissions": ["tabs"]
+  "permissions": ["tabs"],
+  "host_permissions": ["https://gemini.google.com/*"]
 }

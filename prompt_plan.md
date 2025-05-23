@@ -192,7 +192,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 6: Fallback Titling - Communication & Logic (Completed: [ NO ])**
+### **Prompt 6: Fallback Titling - Communication & Logic (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -256,7 +256,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 7: Primary Titling - Sidebar DOM Interaction in Content Script (Completed: [ NO ])**
+### **Prompt 7: Primary Titling - Sidebar DOM Interaction in Content Script (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -299,7 +299,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 8: Primary Titling - Dynamic Updates via MutationObserver (Completed: [ NO ])**
+### **Prompt 8: Primary Titling - Dynamic Updates via MutationObserver (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -350,7 +350,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 9: Integrating Titling Logic - Unified Update Function (Completed: [ NO ])**
+### **Prompt 9: Integrating Titling Logic - Unified Update Function (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -440,7 +440,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 10: Refinements - Robust Selectors and Configuration (Completed: [ NO ])**
+### **Prompt 10: Refinements - Robust Selectors and Configuration (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.
@@ -478,7 +478,7 @@ After this step, the developer should be able to:
 
 ---
 
-### **Prompt 11: Refinements - Error Handling (Completed: [ NO ])**
+### **Prompt 11: Refinements - Error Handling (Completed: [ YES ])**
 
 ```text
 You are an expert AI programmer. We are building the "Gemini Entitled Tabs" Chrome extension.

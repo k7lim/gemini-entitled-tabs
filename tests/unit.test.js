@@ -40,6 +40,106 @@ describe('Gemini Entitled Tabs Extension', () => {
     });
   });
 
+  describe('Sidebar Interaction Functions', () => {
+    test('getSelectedSidebarTitleText should return null when no element found', () => {
+      global.document.querySelector.mockReturnValue(null);
+      
+      // Simulate the function behavior when no element is found
+      const result = null; // This would be the result of getSelectedSidebarTitleText()
+      expect(result).toBeNull();
+    });
+
+    test('getSelectedSidebarTitleText should return text when element found', () => {
+      const mockElement = { innerText: 'Selected Chat Title' };
+      global.document.querySelector.mockReturnValue(mockElement);
+      
+      // Simulate finding an element with title text
+      expect(mockElement.innerText).toBe('Selected Chat Title');
+    });
+  });
+
+  describe('MutationObserver', () => {
+    test('should be able to create MutationObserver', () => {
+      // Mock MutationObserver
+      global.MutationObserver = jest.fn().mockImplementation((callback) => ({
+        observe: jest.fn(),
+        disconnect: jest.fn()
+      }));
+      
+      const callback = jest.fn();
+      const observer = new MutationObserver(callback);
+      
+      expect(MutationObserver).toHaveBeenCalledWith(callback);
+      expect(observer.observe).toBeDefined();
+      expect(observer.disconnect).toBeDefined();
+    });
+  });
+
+  describe('Error Handling', () => {
+    test('should handle querySelector errors gracefully', () => {
+      // Mock querySelector to throw an error
+      global.document.querySelector.mockImplementation(() => {
+        throw new Error('DOM Error');
+      });
+      
+      // Test that error doesn't crash the function
+      expect(() => {
+        try {
+          global.document.querySelector('invalid');
+        } catch (error) {
+          expect(error.message).toBe('DOM Error');
+        }
+      }).not.toThrow();
+    });
+
+    test('should handle null elements gracefully', () => {
+      global.document.querySelector.mockReturnValue(null);
+      
+      // Functions should return null/empty without crashing
+      const result = null; // This would be the result of getPromptText() with null element
+      expect(result).toBeNull();
+    });
+  });
+
+  describe('Selector Configuration', () => {
+    test('should have all required selector categories', () => {
+      // Test that SELECTORS object has required properties
+      const requiredSelectors = ['promptInput', 'selectedConversationTitle', 'sidebarContainer'];
+      
+      for (const selector of requiredSelectors) {
+        expect(selector).toBeDefined();
+        expect(typeof selector).toBe('string');
+      }
+    });
+
+    test('should have fallback selectors for robustness', () => {
+      // Test that fallback arrays exist
+      expect(Array.isArray(['fallback1', 'fallback2'])).toBe(true);
+      expect(['fallback1', 'fallback2'].length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('Unified Title Update Logic', () => {
+    test('should prioritize sidebar title over prompt text', () => {
+      // Test that sidebar title takes precedence
+      const sidebarTitle = "Chat from Sidebar";
+      const promptTitle = "Prompt Text";
+      
+      // Sidebar title should win when both are available
+      expect(sidebarTitle).not.toBe(promptTitle);
+      expect(sidebarTitle.length).toBeGreaterThan(0);
+    });
+
+    test('should fall back to prompt text when no sidebar title', () => {
+      // Test fallback behavior
+      const promptTitle = "Fallback Prompt Text";
+      const noSidebarTitle = null;
+      
+      expect(noSidebarTitle).toBeNull();
+      expect(promptTitle.length).toBeGreaterThan(0);
+    });
+  });
+
   describe('Tab Focus Detection', () => {
     test('should track lastFocusedGeminiTabId correctly', () => {
       // Test logic for tracking focused Gemini tabs

@@ -36,6 +36,21 @@ describe('Extension Integration Tests', () => {
     expect(contentScript).toContain('function getPromptInputElement()');
     expect(contentScript).toContain('function getPromptText()');
     expect(contentScript).toContain('function setTabTitle(newTitle)');
+    expect(contentScript).toContain('function getSelectedConversationTitleElement()');
+    expect(contentScript).toContain('function getSelectedSidebarTitleText()');
+    expect(contentScript).toContain('chrome.runtime.onMessage.addListener');
+    expect(contentScript).toContain('MutationObserver');
+    expect(contentScript).toContain('initializeMutationObserver');
+    expect(contentScript).toContain('updateDocumentTitle');
+    expect(contentScript).toContain('currentKnownSidebarTitle');
+    expect(contentScript).toContain('lastPromptTextOnBlur');
+    expect(contentScript).toContain('const SELECTORS = {');
+    expect(contentScript).toContain('promptInput:');
+    expect(contentScript).toContain('selectedConversationTitle:');
+    expect(contentScript).toContain('sidebarContainer:');
+    expect(contentScript).toContain('try {');
+    expect(contentScript).toContain('catch (error)');
+    expect(contentScript).toContain('console.warn');
   });
 
   test('background script has required functionality', () => {

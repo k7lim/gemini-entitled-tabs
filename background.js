@@ -12,6 +12,11 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.tabs.onActivated.addListener((activeInfo) => {
   if (lastFocusedGeminiTabId !== null && lastFocusedGeminiTabId !== activeInfo.tabId) {
     console.log(`Gemini tab ${lastFocusedGeminiTabId} lost focus due to tab switch to ${activeInfo.tabId}.`);
+    chrome.tabs.sendMessage(lastFocusedGeminiTabId, { type: "GEMINI_TAB_BLURRED" }, (response) => {
+      if (chrome.runtime.lastError) {
+        console.log("Error sending blur message to tab", lastFocusedGeminiTabId, chrome.runtime.lastError.message);
+      }
+    });
   }
   
   chrome.tabs.get(activeInfo.tabId, (tab) => {
@@ -26,6 +31,11 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 chrome.windows.onFocusChanged.addListener((windowId) => {
   if (windowId === chrome.windows.WINDOW_ID_NONE && lastFocusedGeminiTabId !== null) {
     console.log(`Gemini tab ${lastFocusedGeminiTabId} lost focus due to browser window blur.`);
+    chrome.tabs.sendMessage(lastFocusedGeminiTabId, { type: "GEMINI_TAB_BLURRED" }, (response) => {
+      if (chrome.runtime.lastError) {
+        console.log("Error sending blur message to tab", lastFocusedGeminiTabId, chrome.runtime.lastError.message);
+      }
+    });
   } else if (windowId !== chrome.windows.WINDOW_ID_NONE) {
     chrome.tabs.query({ active: true, windowId: windowId }, (tabs) => {
       if (tabs.length > 0 && tabs[0].url && tabs[0].url.startsWith("https://gemini.google.com")) {
