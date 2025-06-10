@@ -6,6 +6,9 @@ A Chrome extension that dynamically updates Gemini tab titles based on chat cont
 
 This extension enhances the usability of multiple Gemini tabs by providing unique and context-rich tab titles instead of the generic "Gemini" title. It automatically updates tab titles based on the currently selected conversation in the sidebar or, as a fallback, the text typed in the prompt box for new chats.
 
+## Screenshot
+![image](https://github.com/user-attachments/assets/aa50bca7-8221-45f1-a755-b9e57f63ec3a)
+
 ## Features
 
 - **Dynamic Tab Titles**: Automatically updates tab titles based on:
